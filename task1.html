@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <button id="subbutton">-</button>
+        <input type="number" value="0" id="text-field" readonly>
+        <button id="addbutton">+</button>
+    </div>
+    <script>
+
+        document.querySelector(".container").addEventListener('click',function(event) {
+            let button=event.target; 
+            let textField = document.getElementById("text-field");
+            let value=parseInt(textField.value || 0 );  
+
+            if(button.id==='addbutton')
+            {
+                if(value >= 50){
+                    value=0;
+                }else{
+                    value++;                    
+                }
+            }else if(button.id==='subbutton'){
+                if(value > 0)
+                {
+                    value--;
+                }
+                else{
+                    value=50;
+                }
+            }
+            textField.value = value;       
+        });
+        // let add=document.getElementById("addbutton");
+        // let subbutton=document.getElementById("subbutton");
+        // add.addEventListener('click',ButtonClick)
+        // subbutton.addEventListener('click',ButtonClick)
+
+        // function ButtonClick(event){
+          
+        // //    text1.innerHTML=document.getElementById("text-field").value=value;
+        // }
+
+
+            
+    </script>
+</body>
+
+</html>

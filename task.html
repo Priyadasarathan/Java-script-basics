@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <button type="submit" onclick="add()"> - </button>
+        <textarea rows="1" cols="5" id="text-field">0</textarea>
+        <button type="submit" onclick="sub()"> + </button>
+    </div>
+    <script>
+        function add() {
+            let number = document.getElementById("text-field").value;
+            let no = parseInt(number);
+            let text = document.getElementById("text-field");
+            if (no < 50) {
+                no++;
+                text.innerHTML = no;
+            }
+        }
+
+        function sub() {
+            let number = document.getElementById("text-field").value;
+            let no = parseInt(number);
+            let text = document.getElementById("text-field");
+            if (no != 0) {
+                no--;
+                text.innerHTML = no;
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function handleButtonClick(event) {
+    // Get the button that was clicked
+    const button = event.target;
+    
+    // Get the current value of the counter
+    const counter = button.parentNode.querySelector('span');
+    let value = parseInt(counter.textContent);
+    
+    // Increment or decrement the counter based on the button that was clicked
+    if (button.id === 'incrementBtn') {
+      value++;
+    } else if (button.id === 'decrementBtn') {
+      value--;
+    }
+    
+    // Update the counter display
+    counter.textContent = value;
+  }
+  

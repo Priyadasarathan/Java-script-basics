@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .length-convertor{
+            display: block;
+    margin: 400px 400px;
+    width: 500px;
+    height: 500px;
+    background-color: beige;
+    text-align: center;
+        }
+        .inputdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:25px;
+        }
+        .heading1{
+            padding-top: 50px;
+            font-size:36px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .inputdiv input{
+            padding:15px 25px;
+            font-size:25px;
+            border-radius: 30px;
+            outline:none;
+            border:none;
+            margin-bottom: 50px;
+            color:gray;
+        }
+        .inputdiv input::placeholder{
+            color:green;
+            opacity:0.1;
+        }
+        .inputdiv button{
+            padding:10px;
+            border-radius:30px;
+            outline:none;
+            border:none;
+            background:linear-gradient( rgba(125, 191, 252, 0.993),rgb(253, 252, 252));
+            color:rgb(61, 60, 60);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size:20px;
+        }
+        #result{
+            margin-top:25px;
+            font-size:20px;
+            font-weight:700;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="heading"></h1>
+    <div class="length-convertor">
+        <div class="heading1">
+            Length Convertor
+        </div>
+        <div class="inputdiv">
+            <input type="text" id="input" placeholder="length meter to centimeter">
+            <button type="submit" onclick="convert()">Convert to Centimeters</button>
+        </div>
+        <div id="result">
+           
+        </div>
+    </div>
+    <script>
+        function convert(){
+        let mvalue=parseInt(document.getElementById("input").value);
+        let cmvalue=mvalue*100;
+        let result=0;
+        result=document.getElementById("result");
+        result.innerHTML=cmvalue;
+       } 
+    </script>
+    <script>
+        let heading=document.getElementsByClassName("heading");
+        heading.innerHTML="Introduction to javascript";
+    </script>
+   
+</body>
+
+</html>

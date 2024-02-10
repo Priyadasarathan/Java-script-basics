@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Chivo Mono', monospace;
+            background: rgb(0, 0, 0, 0.7);
+        }
+
+        .inputfield input {
+            padding: 10px;
+            border-radius: 20px;
+            outline: none;
+            border: 1px solid green;
+            margin-right: 60px;
+        }
+
+        .container {
+            margin: 200px 400px;
+            background: linear-gradient(rgb(35, 220, 245), rgb(35, 172, 226) 50%);
+            min-height: 600px;
+            min-width: 500px;
+            text-align: center;
+        }
+
+        .button-submit {
+            margin: 20px 80px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 800;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            color: aliceblue;
+            background-color: black;
+            min-width: 180px;
+        }
+
+        .inputfield {
+            padding: 10px 0px 0px 60px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 10px;
+        }
+
+        #result1 {
+            color: aliceblue;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: left;
+            color: white;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200&family=Handlee&family=Lato:wght@300;400&family=Raleway:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Age Difference calculator</h1>
+        <div class="inputfield">
+            <h2>Person 1:</h2>
+            <input type="date" id="input1" placeholder="enter your date of birth">
+            <h2>Person 2:</h2>
+            <input type="date" id="input2" placeholder="enter your date of birth">
+        </div>
+        <div class="button-submit">
+            <button type="submit" onclick="different()">get the age different</button>
+        </div>
+        <div>
+            <p id="result"></p>
+            <p id="result1"></p>
+        </div>
+    </div>
+    <script>
+        function different() {
+            let dob1 = document.getElementById("input1").value;
+            var date1 = new Date(dob1);
+            let dob2 = document.getElementById("input2").value;
+            var date2 = new Date(dob2);
+            var today = new Date();
+            var diff = Math.abs(date2 - date1);
+            var diffDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            var diffyears = Math.floor(diffDays / 365);
+            var diffweeks = Math.floor((diffDays % 365) / 7);
+            var diffdays = Math.ceil((diffDays % 365) % 7);
+            var result;
+            var result1;
+            if ((date1.getFullYear() > 1900) && (date2.getFullYear() > 1900)) {
+                if (date1 > date2) {
+                    result = document.getElementById("result");
+                    result.innerHTML = "Age difference between two persons is " + diffyears + " " + "years" + " " + diffweeks + " " + "weeks" + " " + diffdays + " " + "days";
+                    result1 = document.getElementById("result1");
+                    result1.innerHTML = "person1 is younger";
+                }
+
+                else if (date1 < date2) {
+                    result = document.getElementById("result");
+                    result.innerHTML = "Age difference between two persons is " + diffyears + " " + "years" + " " + diffweeks + " " + "weeks" + " " + diffdays + " " + "days";
+                    result1 = document.getElementById("result1");
+                    result1.innerHTML = "person1 is elder";
+                }
+                else {
+                    result = document.getElementById("result");
+                    result.innerHTML = "both person are born in same date,month,year"
+                }
+
+            }
+            else {
+                var result;
+                result = document.getElementById("result");
+                result.innerHTML = "Please enter minimum year should be more than 1900 and date does not grater than today"
+            }
+        }
+    </script>
+</body>
+
+</html>

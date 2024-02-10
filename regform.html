@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+            label{
+                margin-right: 40px;
+                margin-bottom: 15px;
+            }
+            #about{
+                display:flex;
+            }
+            .inputbox input:focus{
+                 outline-color:gold;
+            }
+            textarea:focus{
+                outline-color:gold;
+            }
+            .inputbox .error{
+                color:red;
+            }
+            .inputbox .success{
+                border-color:green();
+            }
+</style>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+     <form action="#" class="form" id="form" autocomplete="off" name="registrationform">
+        <div class="inputbox">
+            <sup>*</sup><label for="username" value="" >User Name:</label>
+             <input type="text" placeholder="Enter Your Username" id="username">
+                <p id="error"></p>
+        </div>
+        <div class="inputbox">
+            <sup>*</sup><label for="password" value="">Password:</label>
+            <input type="text" placeholder="Enter Your Password" id="password">
+                <p id="error"></p>
+        </div>
+       <div class="inputbox">
+        <sup>*</sup><label for="fullname">Full Name:</label> 
+        <input type="text" placeholder="Enter Your fullname" id="fullname" value="">
+            <p id="error"></p>
+       </div> 
+       
+       <div class="inputbox" id="about">
+        <div>
+            <label for="address">Address:</label> 
+        </div>
+        <div>
+            <textarea rows="10" cols="20" id="address" value=""></textarea>
+        </div>
+       </div>
+
+      <div class="inputbox">
+        <sup>*</sup><label for="country">Country:</label> 
+        <select id="country">
+            <option id="value1">Select your Country</option>
+            <option id="value2">India</option>
+            <option id="value3">Nepal</option>
+            <option id="value4">Bhutan</option>
+            <option id="value5">Pakistan</option>
+            <option id="value6">Others</option>
+        </select>
+            <p id="error"></p>
+      </div>
+
+       <div class="inputbox">
+        <sup>*</sup><label for="zipcode">ZIP code:</label> 
+        <input type="text" placeholder="Enter Your ZIP code" id="zipcode">
+            <p id="error"></p>
+       </div>
+
+       <div class="inputbox">
+        <sup>*</sup><label for="e-mail" >Email:</label> 
+        <input type="email" placeholder="Enter Your Email" id="mail">
+            <p id="error"></p>
+       </div>
+       
+      <div class="inputbox" id="about">
+        <sup>*</sup><label for="gender">Gender:</label> 
+        <div id="gender">
+            <input type="radio" name="gender" value="male" id="gender_male">
+            <label for="gender_male">Male</label>
+            <input type="radio" name="gender" value="female" id="gender_female">
+            <label for="gender_female">Female</label>
+                <p id="error"></p>
+        </div>
+      
+       </div>
+        
+       <div class="inputbox" id="about">
+        <sup>*</sup><label for="language">Language:</label> 
+        <div id="language">
+            <input type="checkbox" id="language_english">
+            <label for="language_english">English</label>
+            <input type="checkbox" id="language_non-english">
+            <label for="language_non-english">Non-English</label><br>
+        </div>
+            <p id="error"></p>
+       </div>
+       
+       <div class="inputbox" id="about">
+        <div>
+            <label>About:</label>
+        </div>
+        <div>
+            <textarea rows="10" cols="20"></textarea>
+        </div>
+       </div>
+
+        <button type="submit" value="submit" id="submit">submit</button>
+      
+     </form>
+    </div>
+    <script src="javascript/jquery-3.6.4.min.js"></script>
+   
+</body>
+<script defer src="fv.js"></script> 
+</html>

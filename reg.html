@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<style>
+    label {
+        margin-bottom: 25px;
+        font-size: 16px;
+    }
+
+    sup {
+        color: red;
+    }
+
+    .inputbox input:focus {
+        outline-color: gold;
+    }
+
+    textarea:focus {
+        outline-color: gold;
+    }
+
+    .inputbox p {
+        color: red;
+    }
+
+    .about {
+        display: flex;
+    }
+
+    .container {
+        background-color: rgb(166, 237, 247);
+        padding: 30px;
+        min-width: 500px;
+        margin: 100px 350px 0px;
+    }
+
+    body {
+        margin: 0px;
+        background: linear-gradient(rgb(4, 91, 221), rgb(219, 157, 248));
+        font-size: 16px;
+    }
+
+    .input {
+        font-size: 16px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid black;
+        background-color: white;
+    }
+
+    .input1 {
+        font-size: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        background-color: royalblue;
+        border: none;
+        outline: none;
+        padding: 10px;
+    }
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        color: royalblue;
+    }
+
+    .combo {
+        font-size: 16px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="#" class="form" id="form" autocomplete="off">
+            <div class="inputbox">
+                <sup>*</sup><label for="username" value="">User Name:</label>
+                <div>
+                    <input type="text" placeholder="Enter Your Username" id="username" class="input">
+                    <p id="usererror"></p>
+                </div>
+
+            </div>
+            <div class="inputbox">
+                <sup>*</sup><label for="password" value="">Password:</label>
+                <div>
+                    <input type="text" placeholder="Enter Your Password" id="password" class="input">
+                    <p id="passworderror"></p>
+                </div>
+
+            </div>
+            <div class="inputbox">
+                <sup>*</sup><label for="fullname">Full Name:</label>
+                <div>
+                    <input type="text" placeholder="Enter Your fullname" id="fullname" class="input">
+                    <p id="fullnameerror"></p>
+                </div>
+
+            </div>
+
+            <div class="inputbox" id="about">
+                <div>
+                    <label for="address">Address:</label>
+                </div>
+                <div>
+                    <textarea rows="5" cols="20" id="address" class="input"></textarea>
+                </div>
+            </div>
+
+            <div class="inputbox">
+                <sup>*</sup><label for="country">Country:</label>
+                <div>
+                    <select id="country" class="input1 combo">
+                        <option id="value1">Select your Country</option>
+                        <option id="value2">India</option>
+                        <option id="value3">Nepal</option>
+                        <option id="value4">Bhutan</option>
+                        <option id="value5">Pakistan</option>
+                        <option id="value6">Others</option>
+                    </select>
+                    <p id="comboerror"></p>
+                </div>
+
+            </div>
+
+            <div class="inputbox">
+                <sup>*</sup><label for="zipcode">ZIP code:</label>
+                <div>
+                    <input type="text" placeholder="Enter Your ZIP code" id="zipcode" class="input" maxlength="6">
+                    <p id="ziperror"></p>
+                </div>
+
+            </div>
+
+            <div class="inputbox">
+                <sup>*</sup><label for="mail">Email:</label>
+                <div>
+                    <input type="email" placeholder="Enter Your Email" id="mail" class="input">
+                    <p id="mailerror"></p>
+                </div>
+
+            </div>
+
+            <div class="inputbox" id="about">
+                <sup>*</sup><label for="gender">Gender:</label>
+                <div id="gender">
+                    <input type="radio" name="gender" value="male" id="gender_male">
+                    <label for="gender_male">Male</label>
+                    <input type="radio" name="gender" value="female" id="gender_female">
+                    <label for="gender_female">Female</label>
+                    <p id="gendererror"></p>
+                </div>
+
+            </div>
+
+            <div class="inputbox" id="about">
+                <div>
+                    <sup>*</sup><label for="language">Language:</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="language_english" name="language">
+                    <label for="language_english">English</label>
+                    <input type="checkbox" id="language_non-english" name="language">
+                    <label for="language_non-english">Non-English</label>
+                    <p id="checkerror"></p>
+                </div>
+            </div>
+
+            <div class="inputbox" id="about">
+                <div>
+                    <label>About:</label>
+                </div>
+                <div>
+                    <textarea rows="5" cols="20" class="input"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" value="submit" id="submit" form="form">submit</button>
+
+        </form>
+    </div>
+
+    <script>
+        let valid;
+        function error(id, message,borderid) {
+            let error = document.getElementById(id);
+            error.innerHTML = message;
+            valid='false';
+        }
+        function border(id)
+        {
+            document.getElementById(id).style.borderColor='red';
+        }
+
+        document.querySelector('#form').addEventListener("submit", function (event) {
+            
+            
+            let zipcode = document.getElementById('zipcode').value.trim();
+            let mail = document.getElementById('mail').value.trim();
+            valid='true';
+
+
+            if (document.getElementById('username').value.trim() === '') {
+                error('usererror', "Username is required");
+                border("username");
+
+            }
+            else {
+                error('usererror', "");
+            }
+
+
+            if (document.getElementById('password').value.trim() === '') {
+                error('passworderror', "Password is required");
+                border("password");
+            }
+            else if ((password.length < 8) || (password.length > 12)) {
+                error('passworderror', "Minimum password character must be 8 and maximum should be 12");
+                border("password");
+            }
+            else {
+                error('passworderror', "");
+            }
+
+
+            if (document.getElementById('fullname').value.trim() === '') {
+                error('fullnameerror', "Your name is required","fullname");
+                border("fullname");
+            }
+            else {
+                error('fullnameerror', '');
+            }
+
+
+            if (document.getElementById('country').value.trim() === 'Select your Country') {
+                error('comboerror', "Country is required");
+                border("country");
+            }
+            else {
+                error('comboerror', '');
+            }
+
+
+
+            // function isContains(zipcode) {
+            //     for (i = 0; i < zipcode.length; i++) {
+            //         let x = zipcode.charCodeAt(i);
+            //         if ((x >= 48) && (x <= 57)) {
+            //             return true;
+            //             console.log(x);
+            //         }
+            //         else {
+            //             return false;
+            //             break;
+            //         }
+            //     }
+            // }
+            if (zipcode === '') {
+                error('ziperror', "Zipcode is required");
+                border('zipcode');
+            }
+            else if (isNaN(zipcode)) {
+                error('ziperror', "Zipcode must be numeric only");
+                border('zipcode');
+            }
+            else if (zipcode.length != 6) {
+                error('ziperror', "Zipcode must be contain 6 digits only");
+                border('zipcode');
+            }
+            else {
+                error('ziperror', '');
+            }
+
+
+
+            let x = mail.search('@gmail.com')
+            if (mail === '') {
+                error('mailerror', "Email is required");
+                border("mail");
+            }
+            else if (x === -1) {
+                error('mailerror', 'Give correct Email-id');
+                border("mail");
+            }
+            else {
+                error('mailerror', '');
+            }
+
+
+
+            /* let j,check;
+             j = rbutton.length;
+             check='false';
+             console.log(j);
+             for (let i = 0; i < j; i++) {
+                 console.log(i);
+                 if (rbutton[i].checked) {
+                     check='true';
+                     return true;
+                    
+                 }
+             }
+             if(check === 'false'){
+                 error('gendererror', "Gender is required");
+             }
+             else{
+                 error('gendererror',"");
+             }*/
+
+            if (document.getElementById('gender_male').checked) {
+                error('gendererror', "");
+            }
+            else if (document.getElementById('gender_female').checked) {
+                error('gendererror', "");
+            }
+            else {
+                error('gendererror', "Gender is required");
+            }
+
+            /*let c,u;
+            c = 'false';
+            u = language.length;
+            for (let i = 0; i < u; i++) {
+                if (language[i].checked) {
+                    c = 'true';
+                    console.log(c);
+                    return true;
+                }
+            }
+            if (c === 'false') {
+                error('checkerror',"Please select anyone language");
+            }
+            else {
+                error('checkerror',"");
+            }*/
+            if (document.getElementById('language_english').checked) {
+                error('checkerror', "");
+            }
+            else if (document.getElementById('language_non-english').checked) {
+                error('checkerror', "");
+            }
+            else {
+                error('checkerror', "Please select anyone language");
+            }
+
+
+            // event.target.submit();
+            // if(!vb) event.preventDefault();
+            if(!valid){
+                event.preventDefault();
+            }
+        });
+        
+
+        document.querySelector('#zipcode').addEventListener('keydown', function(e){            
+            if(e.key  == 'Backspace' || e.key == 'Delete' || e.key == 'ArrowRight' || e.key == 'ArrowLeft') return;
+            console.log(e.key);
+            if(isNaN(e.key) || e.key == ' '){
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

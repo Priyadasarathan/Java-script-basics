@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+  <p id="demo"></p>
+</body>
+<script>
+    for(i=0;i<=1000;i++)
+    {
+       let no= Math.floor(Math.random() * 1000);
+
+        if(no==567)
+        {
+            console.log("you won lottery 12000 for this number 788");
+            document.getElementById("demo").innerHTML=no;
+            break;
+        }
+        else{
+            console.log(+no);
+
+        }
+    }
+
+    const a=[65,78,78,56,657,657]
+    for(i=0;i<a.length;i++){
+        console.log(""+a[i]);
+        document.getElementById("demo").innerHTML=a[i];
+        document.write("\n"+a[i]);
+    }
+    let n=a.length;
+    console.log(+n);
+
+    const d=new Date();
+    document.getElementById("demo").innerHTML=d;
+    document.write(d);
+
+    let person={
+        name:"Balamurugan",
+        age:25,
+        nationality:"indian",
+        state:"tamilnadu"
+    }
+    console.log(person.state);
+    console.log(person["state"]);
+
+    let employee=["prabhu","partha","sarath"];
+    console.log(employee[2]);
+
+    let age1=24;
+    let type= age1 >18 ? "you have eligible to vote":"you does not have eligible eligible to vote";
+
+    let g=10;
+    let v;
+    console.log("binary digit of a given number")
+    while(v>1)
+    {
+        let x=g%2;
+        v=g/2;
+        console.log(x); 
+    }
+
+    let j=10;
+    for(;j>=1;)
+    {
+        console.log(j);
+        j--;
+    }
+//for in    
+    const emp={
+        name:"ganapathi",
+        age:23,
+        designation:"supervisor"
+    };
+
+    for(let key in emp){
+        console.log(key +":"+emp[key]);
+    }
+    
+    const fruit=["banana","guava","orange","strawberry"];
+    for(let key in fruit){
+        console.log(key +":"+fruit[key]);
+       
+    }
+//for of    
+    var mechanical_equipments=["spanner","wrech","ringspanner"];
+
+    for(let equipment of mechanical_equipments)
+    {
+        console.log("equipments:"+equipment);
+    }
+//function
+    let name="suresh";
+    let age="45";
+    let designation="supervisor"
+    let interest=["design","production"]
+    let company={
+        branch:"chennai",
+        company_name:"abc.privated.limited"
+    }
+
+    function greeting1()
+    {
+        let msg="my name is " +name + " . I am interested in " +interest;
+        console.log(msg);
+    }
+    greeting1();
+//encapsulation in javascript
+    let employees={
+        name:"mahesh",
+        age:45,
+        designation:"maintanence",
+        specialization:["design","production"],
+        company:
+        {
+            branch:"chennai",
+            company_name:"abc_privated.limited"
+        },
+        greeting:function(){
+           let msg="my name is "+this.name+ " i am working in "+company.company_name+" , "+company.branch;
+           let msg1=`my name is ${this.name} .I am specialization in ${this.specialization}`;
+           console.log(msg);
+           console.log(msg1);
+        }
+
+    };
+    console.log(employees.greeting());
+//factoryfunctions
+   function createPerson(name,interest){
+    let person={
+        name,interest,
+        greeting(){
+            let msg=`my name is ${
+                this.name
+            }. i am interested in playing ${this.interest}`
+            console.log(msg);
+        }
+    }
+    return person;
+   }
+   let b=createPerson("tamil",["cricket","football"]);
+   let c=createPerson("abi");
+   b.greeting();
+   c.greeting();
+//constructor functions
+   function Person(name,designation){
+           this.name=name,this.designation=designation,
+           this.greeting=function()
+           {
+            let msg=`my name is ${this.name}.i am working as a ${this.designation}`
+            console.log(msg);
+           }  
+           return;
+   }   
+   let demo=new Person("ramesh","manager"   );
+   demo.greeting();
+   console.log(Person.constructor);
+
+   const section={
+      section:"storage room",
+   }
+
+   section.section_no=2;
+   console.log(section.section_no);
+   console.log(section.section_no);
+   console.log(section.section);
+
+   let name2=new String("bala");
+   console.log(name2);
+   let age2=new Number(25);
+   console.log(age2);
+
+   let cartol={value:5};
+   function updatecart(cart)
+   {
+    cart.value ++;
+    console.log(cartol);
+   }
+   console.log(cartol);
+   updatecart(cartol);
+   console.log(cartol);
+
+   let another=Object.assign({},name2);
+   console.log(+another);
+
+   for(let key in employees)
+      {
+        another[key]=employees[key];
+      }
+     console.log(another); 
+
+   
+
+     checkRequired=['username','input','password'];
+     function checkRequired(inputs){
+        inputs.forEach(function(input){
+            console.log("input");
+        });  
+     }
+</script>
+</html>

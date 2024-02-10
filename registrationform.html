@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+            label{
+                margin-right: 40px;
+                margin-bottom: 15px;
+            }
+            .about{
+                display:flex;
+            }
+            .inputbox input:focus{
+                 outline-color:gold;
+            }
+            textarea:focus{
+                outline-color:gold;
+            }
+</style>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+    <form id="form" name="registrationform">
+        <div class="inputbox">
+            <sup>*</sup><label for="username" >User Name:</label>
+             <input type="text" placeholder="Enter Your Username" id="username">
+             <div class="error"></div>
+        </div>
+        <div class="inputbox">
+            <sup>*</sup><label for="password" >Password:</label>
+            <input type="text" placeholder="Enter Your Password" id="password">
+        </div>
+       <div class="inputbox">
+        <sup>*</sup><label for="fullname">Full Name:</label> 
+        <input type="text" placeholder="Enter Your fullname" id="fullname">
+       </div> 
+       
+       <div class="inputbox about">
+        <div>
+            <sup>*</sup><label for="address">Address:</label> 
+        </div>
+        <div>
+            <textarea rows="10" cols="20" id="address"></textarea>
+        </div>
+       </div>
+      <div class="inputbox">
+        <sup>*</sup><label for="country">Country:</label> 
+        <select id="country">
+            <option id="value1">Select your Country</option>
+            <option id="value2">India</option>
+            <option id="value3">Nepal</option>
+            <option id="value4">Bhutan</option>
+            <option id="value5">Pakistan</option>
+            <option id="value6">Others</option>
+        </select>
+      </div>
+       <div class="inputbox">
+        <sup>*</sup><label for="zipcode">ZIP code:</label> 
+        <input type="text" placeholder="Enter Your ZIP code" id="zipcode">
+       </div>
+
+       <div class="inputbox">
+        <sup>*</sup><label for="e-mail" >Email:</label> 
+        <input type="email" placeholder="Enter Your Email" id="mail">
+       </div>
+       
+       <!--<div class="inputbox about">
+        <sup>*</sup><label for="gender">Gender:</label> 
+        <div id="gender">
+            <input type="radio" name="gender" value="male" id="gender_male">
+            <label for="gender_male">Male</label>
+            <input type="radio" name="gender" value="female" id="gender-female">
+            <label for="gender-female">Female</label>
+        </div>-->
+      
+       </div>
+        
+       <div class="inputbox about">
+        <sup>*</sup><label for="language">Language:</label> 
+        <div id="language">
+            <input type="checkbox" id="language_english">
+            <label for="language_english">English</label>
+            <input type="checkbox" id="language_non-english">
+            <label for="language_non-english">Non-English</label><br>
+        </div>
+       </div>
+       
+       <div class="about">
+        <div>
+            <label>About:</label>
+        </div>
+        <div>
+            <textarea rows="5" cols="20"></textarea>
+        </div>
+       </div>
+
+       <div>
+        <button type="submit" id="submit">Submit</button>
+       </div>
+      
+    </form>
+    </div>
+    <script src="javascript/jquery-3.6.4.min.js"></script>
+    <script>
+        let userid=document.getElementById("username").value.trim();
+        let pword=document.getElementById("password").value.trim();
+        let fname=document.getElementById("fullname").value.trim();
+        let country=document.getElementById("country").value.trim();
+        let code=document.getElementById("zipcode").value.trim();
+        let mail=document.getElementById("mail").value.trim();
+        const form2=document.forms.registrationform;
+
+        form2.addEventListener('submit',function(event) {
+            event.preventDefault();
+            validateInputs();
+        });
+
+        let setError=(element,message) =>
+        {
+            let inputbox =element.parentElement;
+            let error=inputbox.querySelector(".error");
+            
+            errorDisplay.innerText = message;
+        }
+
+        let setSuccess= element =>{
+            let inputbox= element.parentElement;
+            let errorDisplay=inputbox.querySelector(".error");
+
+            errorDisplay.innerText='';
+            inputbox.classList.add('success');
+            inputbox.classlist.remove('error');
+        }
+
+        function validateInputs(){
+            if(userid === "")
+            {
+                 setError (userid, "Username is required");
+            }
+            else{
+                setsuccess (userid);
+            }
+
+            if(pword === '')
+            {
+                setError(pword,"password is required");
+            }
+            else if(pword.length<8)
+            {
+                setError(pword,"password should be greater than 8 character");
+            }
+            else if(pword.length>12)
+            {
+                setError(pword,"password should be lesser than 12 characters");
+            }
+            else{
+                setsuccess(pword)
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
